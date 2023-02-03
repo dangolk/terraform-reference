@@ -446,3 +446,39 @@ aws_instance.app_server: Modifying... [id=i-01d376c200091b39c]
 aws_instance.app_server: Modifications complete after 2s [id=i-01d376c200091b39c]
 
 Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
+
+# terraform apply -var "instance_name=varvar-ec2"
+aws_instance.app_server: Refreshing state... [id=i-01d376c200091b39c]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following
+symbols:
+  ~ update in-place
+
+Terraform will perform the following actions:
+
+  # aws_instance.app_server will be updated in-place
+  ~ resource "aws_instance" "app_server" {
+        id                                   = "i-01d376c200091b39c"
+      ~ tags                                 = {
+          ~ "Name" = "var-ec2" -> "varvar-ec2"
+        }
+      ~ tags_all                             = {
+          ~ "Name" = "var-ec2" -> "varvar-ec2"
+        }
+        # (30 unchanged attributes hidden)
+
+        # (7 unchanged blocks hidden)
+    }
+
+Plan: 0 to add, 1 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+aws_instance.app_server: Modifying... [id=i-01d376c200091b39c]
+aws_instance.app_server: Modifications complete after 2s [id=i-01d376c200091b39c]
+
+Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
