@@ -657,3 +657,125 @@ Apply complete! Resources: 1 added, 0 changed, 1 destroyed.
 # docker ps -a
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                NAMES
 7f7d490c0505        a99a39d070bf        "/docker-entrypoint.…"   37 seconds ago      Up 37 seconds       0.0.0.0:80->80/tcp   tutorial
+
+# terraform apply
+docker_image.nginx: Refreshing state... [id=sha256:a99a39d070bfd1cb60fe65c45dea3a33764dc00a9546bf8dc46cb5a11b1b50e9nginx:latest]
+docker_container.nginx: Refreshing state... [id=7f7d490c0505039c5292d712180d224c8682c0806dfa484de3b5358a83c6e93d]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following
+symbols:
+-/+ destroy and then create replacement
+
+Terraform will perform the following actions:
+
+  # docker_container.nginx must be replaced
+-/+ resource "docker_container" "nginx" {
+      + bridge                                      = (known after apply)
+      ~ command                                     = [
+          - "nginx",
+          - "-g",
+          - "daemon off;",
+        ] -> (known after apply)
+      + container_logs                              = (known after apply)
+      - cpu_shares                                  = 0 -> null
+      - dns                                         = [] -> null
+      - dns_opts                                    = [] -> null
+      - dns_search                                  = [] -> null
+      ~ entrypoint                                  = [
+          - "/docker-entrypoint.sh",
+        ] -> (known after apply)
+      ~ env                                         = [] -> (known after apply)
+      + exit_code                                   = (known after apply)
+      ~ gateway                                     = "172.17.0.1" -> (known after apply)
+      - group_add                                   = [] -> null
+      ~ hostname                                    = "7f7d490c0505" -> (known after apply)
+      ~ id                                          = "7f7d490c0505039c5292d712180d224c8682c0806dfa484de3b5358a83c6e93d" -> (known after apply)
+      ~ init                                        = false -> (known after apply)
+      ~ ip_address                                  = "172.17.0.2" -> (known after apply)
+      ~ ip_prefix_length                            = 16 -> (known after apply)
+      ~ ipc_mode                                    = "private" -> (known after apply)
+      - links                                       = [] -> null
+      ~ log_driver                                  = "json-file" -> (known after apply)
+      - log_opts                                    = {} -> null
+      - max_retry_count                             = 0 -> null
+      - memory                                      = 0 -> null
+      - memory_swap                                 = 0 -> null
+      ~ name                                        = "tutorial" -> "tutorial-nginx" # forces replacement
+      ~ network_data                                = [
+          - {
+              - gateway                   = "172.17.0.1"
+              - global_ipv6_address       = ""
+              - global_ipv6_prefix_length = 0
+              - ip_address                = "172.17.0.2"
+              - ip_prefix_length          = 16
+              - ipv6_gateway              = ""
+              - network_name              = "bridge"
+            },
+        ] -> (known after apply)
+      - network_mode                                = "default" -> null
+      - privileged                                  = false -> null
+      - publish_all_ports                           = false -> null
+      ~ runtime                                     = "runc" -> (known after apply)
+      ~ security_opts                               = [] -> (known after apply)
+      ~ shm_size                                    = 64 -> (known after apply)
+      ~ stop_signal                                 = "SIGQUIT" -> (known after apply)
+      ~ stop_timeout                                = 0 -> (known after apply)
+      - storage_opts                                = {} -> null
+      - sysctls                                     = {} -> null
+      - tmpfs                                       = {} -> null
+        # (14 unchanged attributes hidden)
+
+      + healthcheck {
+          + interval     = (known after apply)
+          + retries      = (known after apply)
+          + start_period = (known after apply)
+          + test         = (known after apply)
+          + timeout      = (known after apply)
+        }
+
+      + labels {
+          + label = (known after apply)
+          + value = (known after apply)
+        }
+
+        # (1 unchanged block hidden)
+    }
+
+Plan: 1 to add, 0 to change, 1 to destroy.
+╷
+│ Warning: Deprecated attribute
+│
+│   on main.tf line 20, in resource "docker_container" "nginx":
+│   20:   image = docker_image.nginx.latest
+│
+│ The attribute "latest" is deprecated. Refer to the provider documentation for details.
+│
+│ (and one more similar warning elsewhere)
+╵
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+docker_container.nginx: Destroying... [id=7f7d490c0505039c5292d712180d224c8682c0806dfa484de3b5358a83c6e93d]
+docker_container.nginx: Destruction complete after 0s
+docker_container.nginx: Creating...
+docker_container.nginx: Creation complete after 1s [id=105c36bde2081cc7f6104bf1d562cc6744f65d1073ae63bf5b64072b44fbc5da]
+╷
+│ Warning: Deprecated attribute
+│
+│   on main.tf line 20, in resource "docker_container" "nginx":
+│   20:   image = docker_image.nginx.latest
+│
+│ The attribute "latest" is deprecated. Refer to the provider documentation for details.
+│
+│ (and one more similar warning elsewhere)
+╵
+
+Apply complete! Resources: 1 added, 0 changed, 1 destroyed.
+
+#  docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                NAMES
+105c36bde208        a99a39d070bf        "/docker-entrypoint.…"   5 minutes ago       Up 5 minutes        0.0.0.0:80->80/tcp   tutorial-nginx
