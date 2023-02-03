@@ -234,6 +234,83 @@ Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                  NAMES
 9cd83e6e3331        a99a39d070bf        "/docker-entrypoint.…"   8 seconds ago       Up 6 seconds        0.0.0.0:8000->80/tcp   tutorial
 
+# terraform show
+# docker_container.nginx:
+resource "docker_container" "nginx" {
+    attach                                      = false
+    command                                     = [
+        "nginx",
+        "-g",
+        "daemon off;",
+    ]
+    container_read_refresh_timeout_milliseconds = 15000
+    cpu_shares                                  = 0
+    entrypoint                                  = [
+        "/docker-entrypoint.sh",
+    ]
+    env                                         = []
+    gateway                                     = "172.17.0.1"
+    hostname                                    = "df88fb17f0cb"
+    id                                          = "df88fb17f0cb1688281ef40c64155d051bc530c6fc672b09ea35ac80f69f00cd"
+    image                                       = "sha256:a99a39d070bfd1cb60fe65c45dea3a33764dc00a9546bf8dc46cb5a11b1b50e9"
+    init                                        = false
+    ip_address                                  = "172.17.0.2"
+    ip_prefix_length                            = 16
+    ipc_mode                                    = "private"
+    log_driver                                  = "json-file"
+    logs                                        = false
+    max_retry_count                             = 0
+    memory                                      = 0
+    memory_swap                                 = 0
+    must_run                                    = true
+    name                                        = "tutorial"
+    network_data                                = [
+        {
+            gateway                   = "172.17.0.1"
+            global_ipv6_address       = ""
+            global_ipv6_prefix_length = 0
+            ip_address                = "172.17.0.2"
+            ip_prefix_length          = 16
+            ipv6_gateway              = ""
+            network_name              = "bridge"
+        },
+    ]
+    network_mode                                = "default"
+    privileged                                  = false
+    publish_all_ports                           = false
+    read_only                                   = false
+    remove_volumes                              = true
+    restart                                     = "no"
+    rm                                          = false
+    runtime                                     = "runc"
+    security_opts                               = []
+    shm_size                                    = 64
+    start                                       = true
+    stdin_open                                  = false
+    stop_signal                                 = "SIGQUIT"
+    stop_timeout                                = 0
+    tty                                         = false
+    wait                                        = false
+    wait_timeout                                = 60
+
+    ports {
+        external = 8000
+        internal = 80
+        ip       = "0.0.0.0"
+        protocol = "tcp"
+    }
+}
+
+# docker_image.nginx:
+resource "docker_image" "nginx" {
+    id           = "sha256:a99a39d070bfd1cb60fe65c45dea3a33764dc00a9546bf8dc46cb5a11b1b50e9nginx:latest"
+    image_id     = "sha256:a99a39d070bfd1cb60fe65c45dea3a33764dc00a9546bf8dc46cb5a11b1b50e9"
+    keep_locally = false
+    latest       = "sha256:a99a39d070bfd1cb60fe65c45dea3a33764dc00a9546bf8dc46cb5a11b1b50e9"
+    name         = "nginx:latest"
+    repo_digest  = "nginx@sha256:b8f2383a95879e1ae064940d9a200f67a6c79e710ed82ac42263397367e7cc4e"
+}
+
 # terraform destroy
 docker_image.nginx: Refreshing state... [id=sha256:a99a39d070bfd1cb60fe65c45dea3a33764dc00a9546bf8dc46cb5a11b1b50e9nginx:latest]
 docker_container.nginx: Refreshing state... [id=9cd83e6e33314dddb4879d30bff1e8d70fdc2e2ac19ecf8ad315756f54b5e4de]
