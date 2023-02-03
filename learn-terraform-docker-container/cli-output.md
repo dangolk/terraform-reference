@@ -779,3 +779,42 @@ Apply complete! Resources: 1 added, 0 changed, 1 destroyed.
 #  docker ps -a
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                NAMES
 105c36bde208        a99a39d070bf        "/docker-entrypoint.…"   5 minutes ago       Up 5 minutes        0.0.0.0:80->80/tcp   tutorial-nginx
+
+
+#  terraform apply
+docker_image.nginx: Refreshing state... [id=sha256:a99a39d070bfd1cb60fe65c45dea3a33764dc00a9546bf8dc46cb5a11b1b50e9nginx:latest]
+docker_container.nginx: Refreshing state... [id=105c36bde2081cc7f6104bf1d562cc6744f65d1073ae63bf5b64072b44fbc5da]
+
+Changes to Outputs:
+  + container_id = "105c36bde2081cc7f6104bf1d562cc6744f65d1073ae63bf5b64072b44fbc5da"
+  + image_id     = "sha256:a99a39d070bfd1cb60fe65c45dea3a33764dc00a9546bf8dc46cb5a11b1b50e9nginx:latest"
+
+You can apply this plan to save these new output values to the Terraform state, without changing any real infrastructure.
+╷
+│ Warning: Deprecated attribute
+│
+│   on main.tf line 20, in resource "docker_container" "nginx":
+│   20:   image = docker_image.nginx.latest
+│
+│ The attribute "latest" is deprecated. Refer to the provider documentation for details.
+│
+│ (and one more similar warning elsewhere)
+╵
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+container_id = "105c36bde2081cc7f6104bf1d562cc6744f65d1073ae63bf5b64072b44fbc5da"
+image_id = "sha256:a99a39d070bfd1cb60fe65c45dea3a33764dc00a9546bf8dc46cb5a11b1b50e9nginx:latest"
+
+#  terraform output
+container_id = "105c36bde2081cc7f6104bf1d562cc6744f65d1073ae63bf5b64072b44fbc5da"
+image_id = "sha256:a99a39d070bfd1cb60fe65c45dea3a33764dc00a9546bf8dc46cb5a11b1b50e9nginx:latest"
