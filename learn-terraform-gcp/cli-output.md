@@ -1,3 +1,20 @@
+$ terraform show
+# google_compute_network.vpc_network:
+resource "google_compute_network" "vpc_network" {
+    auto_create_subnetworks         = true
+    delete_default_routes_on_create = false
+    enable_ula_internal_ipv6        = false
+    id                              = "projects/terraform-377022/global/networks/terraform-network"
+    mtu                             = 0
+    name                            = "terraform-network"
+    project                         = "terraform-377022"
+    routing_mode                    = "REGIONAL"
+    self_link                       = "https://www.googleapis.com/compute/v1/projects/terraform-377022/global/networks/terraform-network"
+}
+
+________________________________________________________________________________________________________
+
+
 $ terraform apply
 
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
