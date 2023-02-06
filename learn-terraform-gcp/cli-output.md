@@ -1,3 +1,74 @@
+$ terraform apply
+google_compute_network.vpc_network: Refreshing state... [id=projects/terraform-377022/global/networks/terraform-network]
+google_compute_instance.vm_instance: Refreshing state... [id=projects/terraform-377022/zones/us-central1-c/instances/terraform-instance]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  ~ update in-place
+
+Terraform will perform the following actions:
+
+  # google_compute_instance.vm_instance will be updated in-place
+  ~ resource "google_compute_instance" "vm_instance" {
+        id                   = "projects/terraform-377022/zones/us-central1-c/instances/terraform-instance"
+        name                 = "terraform-instance"
+      ~ tags                 = [
+          + "gcp",
+          + "terraform",
+          + "test",
+        ]
+        # (17 unchanged attributes hidden)
+
+        # (4 unchanged blocks hidden)
+    }
+
+Plan: 0 to add, 1 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+google_compute_instance.vm_instance: Modifying... [id=projects/terraform-377022/zones/us-central1-c/instances/terraform-instance]
+google_compute_instance.vm_instance: Still modifying... [id=projects/terraform-377022/zones/us-central1-c/instances/terraform-instance, 10s elapsed]
+google_compute_instance.vm_instance: Modifications complete after 12s [id=projects/terraform-377022/zones/us-central1-c/instances/terraform-instance]
+
+Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
+
+
+─────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+$ terraform plan
+google_compute_network.vpc_network: Refreshing state... [id=projects/terraform-377022/global/networks/terraform-network]
+google_compute_instance.vm_instance: Refreshing state... [id=projects/terraform-377022/zones/us-central1-c/instances/terraform-instance]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  ~ update in-place
+
+Terraform will perform the following actions:
+
+  # google_compute_instance.vm_instance will be updated in-place
+  ~ resource "google_compute_instance" "vm_instance" {
+        id                   = "projects/terraform-377022/zones/us-central1-c/instances/terraform-instance"
+        name                 = "terraform-instance"
+      ~ tags                 = [
+          + "gcp",
+          + "terraform",
+          + "test",
+        ]
+        # (17 unchanged attributes hidden)
+
+        # (4 unchanged blocks hidden)
+    }
+
+Plan: 0 to add, 1 to change, 0 to destroy.
+
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Note: You didn't use the -out option to save this plan, so Terraform can't guarantee to take exactly these actions if you run "terraform apply" now.
+
+─────────────────────────────────────────────────────────────────────────────────────────────────────────
+
 $  terraform show
 # google_compute_instance.vm_instance:
 resource "google_compute_instance" "vm_instance" {
