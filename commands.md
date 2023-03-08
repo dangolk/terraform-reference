@@ -18,3 +18,6 @@ for this configuration.
   default
 * test
 ```
+
+Apply changes on terraform plan without prompting 'Y' 
+## $ terraform apply --auto-aprove
