@@ -19,6 +19,9 @@ for this configuration.
 * test
 ```
 
+## $ terraform workspace select default
+
+
 ## Apply changes on terraform plan without prompting 'Y' 
 ``` $ terraform apply --auto-aprove ```
 
