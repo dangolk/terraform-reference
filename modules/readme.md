@@ -214,3 +214,16 @@ Outputs:
 
 PrivateIP = "10.0.1.137"
 ```
+
+## $ terraform workspace list
+```
+* default
+```
+
+## $ terraform state list
+```
+aws_instance.my-instance
+module.vpc.data.aws_ssm_parameter.this
+module.vpc.aws_subnet.this
+module.vpc.aws_vpc.this
+```
