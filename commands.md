@@ -19,5 +19,17 @@ for this configuration.
 * test
 ```
 
-Apply changes on terraform plan without prompting 'Y' 
-## $ terraform apply --auto-aprove
+## Apply changes on terraform plan without prompting 'Y' 
+``` $ terraform apply --auto-aprove ```
+
+## List current state of terraform changes in a directory
+$ terraform state list
+```
+terraform state list
+data.aws_availability_zones.azs
+data.aws_ssm_parameter.linuxAmi
+aws_instance.ec2-vm
+aws_security_group.sg
+aws_subnet.subnet
+aws_vpc.vpc_master
+```
