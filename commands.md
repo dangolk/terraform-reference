@@ -1,0 +1,5 @@
+## $ terraform workspace list
+```
+* default
+
+```
