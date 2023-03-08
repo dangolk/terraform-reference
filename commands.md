@@ -19,9 +19,6 @@ for this configuration.
 * test
 ```
 
-## $ terraform workspace select default
-
-
 ## Apply changes on terraform plan without prompting 'Y' 
 ``` $ terraform apply --auto-aprove ```
 
@@ -34,4 +31,19 @@ aws_instance.ec2-vm
 aws_security_group.sg
 aws_subnet.subnet
 aws_vpc.vpc_master
+```
+
+## $ terraform workspace select default
+```
+Switched to workspace "default".
+```
+
+## $ terraform state list
+```
+No state file was found!
+```
+
+State management commands require a state file. Run this command
+in a directory where Terraform has been run or use the -state flag
+to point the command to a specific state location.
 ```
