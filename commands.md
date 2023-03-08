@@ -25,7 +25,6 @@ for this configuration.
 ## List current state of terraform changes in a directory
 $ terraform state list
 ```
-terraform state list
 data.aws_availability_zones.azs
 data.aws_ssm_parameter.linuxAmi
 aws_instance.ec2-vm
