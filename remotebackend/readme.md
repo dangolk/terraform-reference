@@ -183,7 +183,7 @@ Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
 
 ## View Latest Run on Terraform Cloud
-![latestrun.png](./images/latestrun.png)
+![latest-run.png](./images/latest-run.png)
 
 ## Statefile is stored on Terraform Cloud workspace instead of locally
 ![statefile.png](./images/statefile.png)
