@@ -1,4 +1,11 @@
-# Login to Terraform Cloud
+
+## Create Terraform User Token
+![token.png](./images/token.png)
+
+## Setup Terraform Environment Variables for AWS CLI Config
+![env-var.png](./images/env-var.png)
+
+# Login to Terraform Cloud via CLI
 ## $ terraform login
 ```
 Terraform will request an API token for app.terraform.io using your browser.
@@ -175,5 +182,8 @@ aws_instance.vm: Creation complete after 12s [id=i-07e6b2a30a8cad9c4]
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
 
-## Create Terraform User Token
-![Alt Text](./images/token.png)
+## View Latest Run on Terraform Cloud
+![latestrun.png](./images/latestrun.png)
+
+## Statefile is stored on Terraform Cloud workspace instead of locally
+![statefile.png](./images/statefile.png)
