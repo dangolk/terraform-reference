@@ -174,3 +174,6 @@ aws_instance.vm: Creation complete after 12s [id=i-07e6b2a30a8cad9c4]
 
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
+
+## Create Terraform User Token
+![Alt Text](./images/token.png)
