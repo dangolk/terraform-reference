@@ -1,5 +1,3 @@
-# Access key: AKIAVFSA3QIOGMS27EX2
-# Secret access key: 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
 terraform {
   required_providers {
     aws = {
